@@ -15,7 +15,7 @@ var fullUrl = urljoin('http://www.google.com', 'a', '/b/cd', '?foo=123');
 
 console.log(fullUrl);
 
-\\will print:
+//will print:
 
 'http://www.google.com/a/b/cd?foo=123'
 ~~~
