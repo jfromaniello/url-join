@@ -20,4 +20,9 @@ describe('url join', function () {
     urljoin('http:', 'www.google.com///', 'foo/bar', '?test=123', '#faaaaa')
       .should.eql('http://www.google.com/foo/bar?test=123#faaaaa');
   });
+
+  it('should keep leading //', function () {
+    urljoin('//www.google.com', 'foo/bar', '?test=123')
+      .should.eql('//www.google.com/foo/bar?test=123')
+  })
 });
