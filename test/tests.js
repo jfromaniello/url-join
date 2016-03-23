@@ -11,6 +11,11 @@ describe('url join', function () {
       .should.eql('http://www.google.com/foo/bar?test=123');
   });
 
+  it('should be able to join protocol with slashes', function () {
+    urljoin('http://', 'www.google.com/', 'foo/bar', '?test=123')
+      .should.eql('http://www.google.com/foo/bar?test=123');
+  });
+
   it('should remove extra slashes', function () {
     urljoin('http:', 'www.google.com///', 'foo/bar', '?test=123')
       .should.eql('http://www.google.com/foo/bar?test=123');
@@ -19,5 +24,10 @@ describe('url join', function () {
   it('should support anchors in urls', function () {
     urljoin('http:', 'www.google.com///', 'foo/bar', '?test=123', '#faaaaa')
       .should.eql('http://www.google.com/foo/bar?test=123#faaaaa');
+  });
+
+  it('should support protocol-relative urls', function () {
+    urljoin('//www.google.com', 'foo/bar', '?test=123')
+      .should.eql('//www.google.com/foo/bar?test=123')
   });
 });
