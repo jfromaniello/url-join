@@ -1,6 +1,6 @@
 {
   "name": "url-join",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Join urls and normalize as in path.join.",
   "main": "lib/url-join.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url":  "git://github.com/jfromaniello/url-join.git"
+    "url": "git://github.com/jfromaniello/url-join.git"
   },
   "keywords": [
     "url",
