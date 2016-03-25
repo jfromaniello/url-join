@@ -30,4 +30,12 @@ describe('url join', function () {
     urljoin('//www.google.com', 'foo/bar', '?test=123')
       .should.eql('//www.google.com/foo/bar?test=123')
   });
+
+  it('should merge multiple query params properly', function () {
+    urljoin('http:', 'www.google.com///', 'foo/bar', '?test=123', '?key=456')
+      .should.eql('http://www.google.com/foo/bar?test=123&key=456');
+
+    urljoin('http:', 'www.google.com///', 'foo/bar', '?test=123', '?boom=value', '&key=456')
+      .should.eql('http://www.google.com/foo/bar?test=123&boom=value&key=456');
+  });
 });
