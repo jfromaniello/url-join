@@ -1,3 +1,5 @@
+![Travis Status](https://travis-ci.org/rauberdaniel/url-join.svg?branch=master)
+
 Join all arguments together and normalize the resulting url.
 
 ## Install

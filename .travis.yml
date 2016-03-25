@@ -1,0 +1,9 @@
+language: node_js
+node_js:
+  - "5"
+  - "0.12"
+install:
+  - npm install -g mocha
+  - npm install
+script:
+  - npm test
