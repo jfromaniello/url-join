@@ -42,16 +42,24 @@ describe('url join', function () {
   });
 
   it('should support file protocol urls', function () {
-    urljoin('file:', 'android_asset', 'foo/bar')
-      .should.eql('file:///android_asset/foo/bar')
+    urljoin('file:/', 'android_asset', 'foo/bar')
+      .should.eql('file://android_asset/foo/bar')
 
+    urljoin('file:', '/android_asset', 'foo/bar')
+      .should.eql('file://android_asset/foo/bar')
+  });
+
+  it('should support absolute file protocol urls', function () {
     urljoin('file:', '///android_asset', 'foo/bar')
       .should.eql('file:///android_asset/foo/bar')
 
-    urljoin('file:', '/android_asset', 'foo/bar')
+    urljoin('file:///', 'android_asset', 'foo/bar')
       .should.eql('file:///android_asset/foo/bar')
 
-    urljoin('file:///', 'android_asset', 'foo/bar')
+    urljoin('file:///', '//android_asset', 'foo/bar')
+      .should.eql('file:///android_asset/foo/bar')
+
+    urljoin('file:///android_asset', 'foo/bar')
       .should.eql('file:///android_asset/foo/bar')
   });
 
