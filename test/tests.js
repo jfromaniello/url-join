@@ -41,6 +41,20 @@ describe('url join', function () {
       .should.eql('//www.google.com/foo/bar?test=123')
   });
 
+  it('should support file protocol urls', function () {
+    urljoin('file:', 'android_asset', 'foo/bar')
+      .should.eql('file:///android_asset/foo/bar')
+
+    urljoin('file:', '///android_asset', 'foo/bar')
+      .should.eql('file:///android_asset/foo/bar')
+
+    urljoin('file:', '/android_asset', 'foo/bar')
+      .should.eql('file:///android_asset/foo/bar')
+
+    urljoin('file:///', 'android_asset', 'foo/bar')
+      .should.eql('file:///android_asset/foo/bar')
+  });
+
   it('should merge multiple query params properly', function () {
     urljoin('http:', 'www.google.com///', 'foo/bar', '?test=123', '?key=456')
       .should.eql('http://www.google.com/foo/bar?test=123&key=456');
