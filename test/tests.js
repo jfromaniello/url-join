@@ -16,6 +16,11 @@ describe('url join', function () {
       .should.eql('http://www.google.com/#!/foo/bar?test=123');
   });
 
+  it('should work hash urls', function() {
+    urljoin(['http://www.google.com', '#', 'foo/bar', '?test=123'])
+      .should.eql('http://www.google.com/#/foo/bar?test=123');
+  });
+
   it('should be able to join protocol', function () {
     urljoin('http:', 'www.google.com/', 'foo/bar', '?test=123')
       .should.eql('http://www.google.com/foo/bar?test=123');
