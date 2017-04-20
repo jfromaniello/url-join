@@ -34,6 +34,10 @@ describe('url join', function () {
   it('should not remove extra slashes in an encoded URL', function () {
     urljoin('http:', 'www.google.com///', 'foo/bar', '?url=http%3A//Ftest.com')
       .should.eql('http://www.google.com/foo/bar?url=http%3A//Ftest.com');
+
+    urljoin('http://a.com/23d04b3/', '/b/c.html')
+      .should.eql('http://a.com/23d04b3/b/c.html')
+      .should.not.eql('http://a.com/23d04b3//b/c.html');
   });
 
   it('should support anchors in urls', function () {
