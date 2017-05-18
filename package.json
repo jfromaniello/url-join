@@ -1,6 +1,6 @@
 {
   "name": "url-join",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Join urls and normalize as in path.join.",
   "main": "lib/url-join.js",
   "scripts": {
