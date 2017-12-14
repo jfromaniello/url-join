@@ -79,4 +79,19 @@ describe('url join', function () {
     urljoin('http:', 'www.google.com///', 'foo/bar', '?test=123', '?boom=value', '&key=456')
       .should.eql('http://www.google.com/foo/bar?test=123&boom=value&key=456');
   });
+
+  it('should merge multiple query params with more than two query params properly', function () {
+    urljoin('http://example.org/x', '?a=1', '?b=2', '?c=3', '?d=4')
+      .should.eql('http://example.org/x?a=1&b=2&c=3&d=4');
+  });
+
+  it('should merge slashes in paths correctly', function () {
+    urljoin('http://example.org', 'a//', 'b//', 'A//', 'B//')
+      .should.eql('http://example.org/a/b/A/B/');
+  });
+
+  it('should merge colons in paths correctly', function () {
+    urljoin('http://example.org/', ':foo:', 'bar')
+      .should.eql('http://example.org/:foo:/bar');
+  });
 });
