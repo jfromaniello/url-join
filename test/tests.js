@@ -92,10 +92,15 @@ describe('url join', function () {
     urljoin('http://example.org/', ':foo:', 'bar')
       .should.eql('http://example.org/:foo:/bar');
   });
-  
+
   it('should merge just a simple path without URL correctly', function() {
     urljoin('/', 'test')
       .should.eql('/test');
+  });
+
+  it('should merge just a simple path without URL correctly', function() {
+    urljoin('/', 1)
+      .should.eql('/1');
   });
 
   it('should merge slashes in protocol correctly', function () {
