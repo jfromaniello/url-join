@@ -107,6 +107,11 @@ describe('url join', function () {
       .should.eql('http://blabla.com/1');
   });
 
+  it('should merge a path with colon properly', function(){
+    urljoin('/users/:userId', '/cars/:carId')
+      .should.eql('/users/:userId/cars/:carId');
+  });
+
   it.skip('should merge slashes in protocol correctly', function () {
     urljoin('http://example.org', 'a')
       .should.eql('http://example.org/a');
