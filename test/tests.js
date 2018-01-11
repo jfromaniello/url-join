@@ -92,10 +92,15 @@ describe('url join', function () {
     urljoin('http://example.org/', ':foo:', 'bar')
       .should.eql('http://example.org/:foo:/bar');
   });
-  
+
   it('should merge just a simple path without URL correctly', function() {
     urljoin('/', 'test')
       .should.eql('/test');
+  });
+
+  it('should merge a simple path with a number correctly', function() {
+    urljoin('http://blabla.com/', 1)
+      .should.eql('http://blabla.com/1');
   });
 
   it('should merge a path with colon properly', function(){
@@ -112,8 +117,10 @@ describe('url join', function () {
       .should.eql('http://example.org/a');
     urljoin('file:///example.org', 'a')
       .should.eql('file:///example.org/a');
+
     urljoin('file:example.org', 'a')
       .should.eql('file://example.org/a');
+
     urljoin('file:/', 'example.org', 'a')
       .should.eql('file://example.org/a');
     urljoin('file:', '/example.org', 'a')
