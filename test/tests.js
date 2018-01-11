@@ -48,6 +48,17 @@ describe('url join', function () {
   it('should support protocol-relative urls', function () {
     urljoin('//www.google.com', 'foo/bar', '?test=123')
       .should.eql('//www.google.com/foo/bar?test=123')
+
+    urljoin('//', 'www.google.com', 'foo/bar', '?test=123')
+      .should.eql('//www.google.com/foo/bar?test=123')
+  });
+
+  it('should remove duplicate slashes for absolute paths', function () {
+    urljoin('/', '/foo/bar', '?test=123')
+      .should.eql('/foo/bar?test=123')
+
+    urljoin('', '/', '/foo/bar', '?test=123')
+      .should.eql('/foo/bar?test=123')
   });
 
   it('should support file protocol urls', function () {
