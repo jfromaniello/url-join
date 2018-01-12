@@ -72,7 +72,7 @@ describe('url join', function () {
       .should.eql('file:///android_asset/foo/bar')
   });
 
-  it.skip('should merge multiple query params properly', function () {
+  it('should merge multiple query params properly', function () {
     urljoin('http:', 'www.google.com///', 'foo/bar', '?test=123', '?key=456')
       .should.eql('http://www.google.com/foo/bar?test=123&key=456');
 
@@ -83,21 +83,17 @@ describe('url join', function () {
       .should.eql('http://example.org/x?a=1&b=2&c=3&d=4');
   });
 
-  //There is a problem with the capital A and the regex in the replace function
-  // /([^:\s\%\3\A])\/+/g
-  // I think the intention of the regex is to avoid replacing two slashes in the query string:
-  // "?url=http%3A//"
-  it.skip('should merge slashes in paths correctly', function () {
+  it('should merge slashes in paths correctly', function () {
     urljoin('http://example.org', 'a//', 'b//', 'A//', 'B//')
       .should.eql('http://example.org/a/b/A/B/');
   });
 
-  it.skip('should merge colons in paths correctly', function () {
+  it('should merge colons in paths correctly', function () {
     urljoin('http://example.org/', ':foo:', 'bar')
       .should.eql('http://example.org/:foo:/bar');
   });
 
-  it.skip('should merge just a simple path without URL correctly', function() {
+  it('should merge just a simple path without URL correctly', function() {
     urljoin('/', 'test')
       .should.eql('/test');
   });
@@ -112,7 +108,7 @@ describe('url join', function () {
       .should.eql('/users/:userId/cars/:carId');
   });
 
-  it.skip('should merge slashes in protocol correctly', function () {
+  it('should merge slashes in protocol correctly', function () {
     urljoin('http://example.org', 'a')
       .should.eql('http://example.org/a');
     urljoin('http:', '//example.org', 'a')
@@ -122,7 +118,6 @@ describe('url join', function () {
     urljoin('file:///example.org', 'a')
       .should.eql('file:///example.org/a');
 
-    //this one is broken
     urljoin('file:example.org', 'a')
       .should.eql('file://example.org/a');
 
