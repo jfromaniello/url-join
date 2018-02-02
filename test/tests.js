@@ -1,4 +1,5 @@
 var urljoin = require('../lib/url-join');
+var assert = require('assert');
 
 describe('url join', function () {
   it('should work for simple case', function () {
@@ -98,9 +99,15 @@ describe('url join', function () {
       .should.eql('/test');
   });
 
-  it('should merge a simple path with a number correctly', function() {
-    urljoin('http://blabla.com/', 1)
-      .should.eql('http://blabla.com/1');
+  it('should fail with segments that are not string', function() {
+    assert.throws(() => urljoin('http://blabla.com/', 1),
+                  /Url must be a string. Received 1/);
+    assert.throws(() => urljoin('http://blabla.com/', undefined, 'test'),
+                  /Url must be a string. Received undefined/);
+    assert.throws(() => urljoin('http://blabla.com/', null, 'test'),
+                  /Url must be a string. Received null/);
+    assert.throws(() => urljoin('http://blabla.com/', { foo: 123 }, 'test'),
+                  /Url must be a string. Received \[object Object\]/);
   });
 
   it('should merge a path with colon properly', function(){
@@ -127,5 +134,12 @@ describe('url join', function () {
       .should.eql('file://example.org/a');
     urljoin('file:', '//example.org', 'a')
       .should.eql('file://example.org/a');
+  });
+
+  it('should skip empty strings', function() {
+    urljoin('http://foobar.com', '', 'test')
+      .should.eql('http://foobar.com/test');
+    urljoin('', 'http://foobar.com', '', 'test')
+      .should.eql('http://foobar.com/test');
   });
 });
