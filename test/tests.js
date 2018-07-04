@@ -99,15 +99,23 @@ describe('url join', function () {
       .should.eql('/test');
   });
 
+  it('should merge a simple path with a number correctly', function() {
+    urljoin('http://blabla.com/', 1).should.eql('http://blabla.com/1');
+  });
+
   it('should fail with segments that are not string', function() {
-    assert.throws(() => urljoin('http://blabla.com/', 1),
-                  /Url must be a string. Received 1/);
-    assert.throws(() => urljoin('http://blabla.com/', undefined, 'test'),
-                  /Url must be a string. Received undefined/);
+    assert.throws(() => urljoin('http://example.com/', false, 'test'),
+      /URL components must be strings or numbers. Received false/);
+    assert.throws(() => urljoin('http://example.com/', true, 'test'),
+      /URL components must be strings or numbers. Received true/);
     assert.throws(() => urljoin('http://blabla.com/', null, 'test'),
-                  /Url must be a string. Received null/);
+      /URL components must be strings or numbers. Received null/);
+    assert.throws(() => urljoin('http://blabla.com/', undefined, 'test'),
+      /URL components must be strings or numbers. Received undefined/);
+    assert.throws(() => urljoin('http://blabla.com/', Symbol('ImAnSymbol'), 'test'),
+      /URL components must be strings or numbers. Received Symbol\(ImAnSymbol\)/);
     assert.throws(() => urljoin('http://blabla.com/', { foo: 123 }, 'test'),
-                  /Url must be a string. Received \[object Object\]/);
+      /URL components must be strings or numbers. Received \[object Object\]/);
   });
 
   it('should merge a path with colon properly', function(){
