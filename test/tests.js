@@ -99,6 +99,11 @@ describe('url join', function () {
       .should.eql('/test');
   });
 
+  it('should preserve a leading slash in a path', function(){
+    urljoin('', '/test').should.eql('/test');
+    urljoin('', '', '/test').should.eql('/test');
+  });
+
   it('should fail with segments that are not string', function() {
     assert.throws(() => urljoin('http://blabla.com/', 1),
                   /Url must be a string. Received 1/);
