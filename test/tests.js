@@ -100,13 +100,13 @@ describe('url join', function () {
   });
 
   it('should fail with segments that are not string', function() {
-    assert.throws(() => urljoin('http://blabla.com/', 1),
+    assert.throws(function() { urljoin('http://blabla.com/', 1); },
                   /Url must be a string. Received 1/);
-    assert.throws(() => urljoin('http://blabla.com/', undefined, 'test'),
+    assert.throws(function() { urljoin('http://blabla.com/', undefined, 'test'); },
                   /Url must be a string. Received undefined/);
-    assert.throws(() => urljoin('http://blabla.com/', null, 'test'),
+    assert.throws(function() { urljoin('http://blabla.com/', null, 'test'); },
                   /Url must be a string. Received null/);
-    assert.throws(() => urljoin('http://blabla.com/', { foo: 123 }, 'test'),
+    assert.throws(function() { urljoin('http://blabla.com/', { foo: 123 }, 'test'); },
                   /Url must be a string. Received \[object Object\]/);
   });
 
