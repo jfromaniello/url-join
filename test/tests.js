@@ -142,4 +142,15 @@ describe('url join', function () {
     urljoin('', 'http://foobar.com', '', 'test')
       .should.eql('http://foobar.com/test');
   });
+
+  it('should skip intermediary slashes', function() {
+    urljoin('http://me.ly.com:3002', '/', '/demo/scrollbar')
+      .should.eql('http://me.ly.com:3002/demo/scrollbar');
+
+    urljoin('http://me.ly.com:3002', '//', 'foo/bar/')
+      .should.eql('http://me.ly.com:3002/foo/bar/');
+
+    urljoin('http://me.ly.com:3002', '//', 'foo', '/', 'bar/')
+      .should.eql('http://me.ly.com:3002/foo/bar/');
+  });
 });
