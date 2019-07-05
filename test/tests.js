@@ -100,6 +100,8 @@ describe('url join', function () {
   });
 
   it('should fail with segments that are not string', function() {
+    assert.throws(() => urljoin(true),
+                  /Url must be a string. Received true/);
     assert.throws(() => urljoin('http://blabla.com/', 1),
                   /Url must be a string. Received 1/);
     assert.throws(() => urljoin('http://blabla.com/', undefined, 'test'),
@@ -141,5 +143,9 @@ describe('url join', function () {
       .should.eql('http://foobar.com/test');
     urljoin('', 'http://foobar.com', '', 'test')
       .should.eql('http://foobar.com/test');
+  });
+
+  it('should return an empty string if no arguments are supplied', function() {
+    urljoin().should.eql('');
   });
 });
