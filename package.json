@@ -6,6 +6,7 @@
   "scripts": {
     "test": "mocha --require should"
   },
+  "files": ["lib/"],
   "repository": {
     "type": "git",
     "url": "git://github.com/jfromaniello/url-join.git"
