@@ -6,4 +6,4 @@
 declare function urlJoin(...parts: string[]): string;
 declare function urlJoin(parts: string[]): string;
  
-export = urlJoin;
+export default urlJoin;

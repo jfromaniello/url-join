@@ -1,6 +1,6 @@
 #!/usr/bin/env node
+import changelog from 'conventional-changelog';
 
-var changelog = require('conventional-changelog');
 var semver_regex = /\bv?(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)(?:-[\da-z\-]+(?:\.[\da-z\-]+)*)?(?:\+[\da-z\-]+(?:\.[\da-z\-]+)*)?\b/ig;
 
 const commitPartial = ` - {{header}}
