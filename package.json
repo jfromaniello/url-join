@@ -1,6 +1,6 @@
 {
   "name": "url-join",
-  "version": "4.0.1",
+  "version": "5.0.0",
   "description": "Join urls and normalize as in path.join.",
   "type": "module",
   "main": "./lib/url-join.js",
@@ -13,7 +13,9 @@
   "scripts": {
     "test": "mocha --require should"
   },
-  "files": ["lib"],
+  "files": [
+    "lib"
+  ],
   "repository": {
     "type": "git",
     "url": "git://github.com/jfromaniello/url-join.git"
