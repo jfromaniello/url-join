@@ -2,9 +2,14 @@
   "name": "url-join",
   "version": "4.0.1",
   "description": "Join urls and normalize as in path.join.",
-  "main": "lib/url-join.js",
-  "types": "lib/url-join.d.ts",
+  "type": "module",
+  "main": "./lib/url-join.js",
+  "exports": "./lib/url-join.js",
+  "types": "./lib/url-join.d.ts",
   "sideEffects": false,
+  "engines": {
+    "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
+  },
   "scripts": {
     "test": "mocha --require should"
   },
