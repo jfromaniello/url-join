@@ -4,6 +4,7 @@
   "description": "Join urls and normalize as in path.join.",
   "main": "lib/url-join.js",
   "types": "lib/url-join.d.ts",
+  "sideEffects": false,
   "scripts": {
     "test": "mocha --require should"
   },
