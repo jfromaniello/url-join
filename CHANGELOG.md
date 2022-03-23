@@ -1,6 +1,30 @@
+## 5.0.0 - 2022-03-23
+
+ - Add Dependabot config to keep dependencies up-to-date (#67) ([e29fd4c9f6a3a1c29f50262c9323f1a4d8173de4](https://github.com/jfromaniello/url-join/commit/e29fd4c9f6a3a1c29f50262c9323f1a4d8173de4)), closes [#67](https://github.com/jfromaniello/url-join/issues/67)
+ - Add type definitions for TypeScript users (#74) ([2cd46bcaff009a6701b33e16b1b9788c9a09130d](https://github.com/jfromaniello/url-join/commit/2cd46bcaff009a6701b33e16b1b9788c9a09130d)), closes [#74](https://github.com/jfromaniello/url-join/issues/74)
+ - Bump mocha from 3.5.3 to 9.2.2 ([ab6a39a2170083ebcefecfa0abcf80fc25a103ef](https://github.com/jfromaniello/url-join/commit/ab6a39a2170083ebcefecfa0abcf80fc25a103ef))
+ - Change distributed code to use ECMAScript modules (#76) ([caaafed544786b63b8db78d7df6d238ca1f0c6cb](https://github.com/jfromaniello/url-join/commit/caaafed544786b63b8db78d7df6d238ca1f0c6cb)), closes [#76](https://github.com/jfromaniello/url-join/issues/76)
+ - Mark package as free of side-effects (#75) ([86eeb03980b166572e02c7bbaf11c98656d04831](https://github.com/jfromaniello/url-join/commit/86eeb03980b166572e02c7bbaf11c98656d04831)), closes [#75](https://github.com/jfromaniello/url-join/issues/75)
+ - Reduce package size by adding "files" field (#65) ([be56f575c9b723b83cfb066f5649f2cd83efb137](https://github.com/jfromaniello/url-join/commit/be56f575c9b723b83cfb066f5649f2cd83efb137)), closes [#65](https://github.com/jfromaniello/url-join/issues/65)
+ - Regenerate package lockfile (#73) ([b85aec29057ba269618781618e48dc173b941f9b](https://github.com/jfromaniello/url-join/commit/b85aec29057ba269618781618e48dc173b941f9b)), closes [#73](https://github.com/jfromaniello/url-join/issues/73)
+ - Rename master branch to 'main' ([ea22d9342d6ad2de68a0132d176bf332507dc189](https://github.com/jfromaniello/url-join/commit/ea22d9342d6ad2de68a0132d176bf332507dc189))
+ - Replace Travis with Github Actions (#66) ([2c0f6951939b86e7d1194fb21cf54cdfb8d9b1cf](https://github.com/jfromaniello/url-join/commit/2c0f6951939b86e7d1194fb21cf54cdfb8d9b1cf)), closes [#66](https://github.com/jfromaniello/url-join/issues/66)
+ - update travis file ([02991d8d220339d2073b1e5c1bcd069284c5372a](https://github.com/jfromaniello/url-join/commit/02991d8d220339d2073b1e5c1bcd069284c5372a))
+
+
+
+## 4.0.1 - 2019-07-05
+
+ - add CHANGELOG.md and a process to generate it. Closes #32 ([4ab20d603b6fe0e3d6edc1ba03b2b5aa73e3085e](https://github.com/jfromaniello/url-join/commit/4ab20d603b6fe0e3d6edc1ba03b2b5aa73e3085e)), closes [#32](https://github.com/jfromaniello/url-join/issues/32)
+ - fix bowser.json ([c76e0711d1d6c2078dde824d5123e0e452479ffa](https://github.com/jfromaniello/url-join/commit/c76e0711d1d6c2078dde824d5123e0e452479ffa))
+ - fix issue when parameters are empty or the first arg is not an string, closes #49 ([68f782cee439ced586432893025bcccde65cd32a](https://github.com/jfromaniello/url-join/commit/68f782cee439ced586432893025bcccde65cd32a)), closes [#49](https://github.com/jfromaniello/url-join/issues/49)
+ - remove bower.json ([3fc07d7828b0194669487a08d70cfb5890bdfe75](https://github.com/jfromaniello/url-join/commit/3fc07d7828b0194669487a08d70cfb5890bdfe75))
+
+
+
 ## 4.0.0 - 2018-02-02
 
- - Ignore empty string arguments and throw an exception for non-string. Closes #36, #18 ([da05242f381bfe1ae09d00b708cfdbdb93c1a85d](https://github.com/jfromaniello/url-join/commit/da05242f381bfe1ae09d00b708cfdbdb93c1a85d)), closes [#36](https://github.com/jfromaniello/url-join/issues/36) [#18](https://github.com/jfromaniello/url-join/issues/18)
+ - handle empty string and non string arguments. Closes #36, #18 ([da05242f381bfe1ae09d00b708cfdbdb93c1a85d](https://github.com/jfromaniello/url-join/commit/da05242f381bfe1ae09d00b708cfdbdb93c1a85d)), closes [#36](https://github.com/jfromaniello/url-join/issues/36) [#18](https://github.com/jfromaniello/url-join/issues/18)
 
 
 
