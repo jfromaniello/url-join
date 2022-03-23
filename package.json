@@ -18,7 +18,7 @@
   "license": "MIT",
   "devDependencies": {
     "conventional-changelog": "^1.1.10",
-    "mocha": "^3.2.0",
+    "mocha": "^9.2.2",
     "should": "~13.2.3"
   }
 }
