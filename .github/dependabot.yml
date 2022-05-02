@@ -6,3 +6,13 @@ updates:
     rebase-strategy: disabled
     schedule:
       interval: weekly
+    labels:
+      - dependencies
+  - package-ecosystem: github-actions
+    directory: /
+    open-pull-requests-limit: 999
+    rebase-strategy: disabled
+    schedule:
+      interval: weekly
+    labels:
+      - dependencies
