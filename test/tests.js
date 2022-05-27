@@ -82,6 +82,12 @@ describe('url join', () => {
 
     urlJoin('http://example.org/x', '?a=1', '?b=2', '?c=3', '?d=4')
       .should.eql('http://example.org/x?a=1&b=2&c=3&d=4');
+
+    urlJoin('http:', 'www.google.com///', 'foo/bar', '&test=123', '&key=456')
+      .should.eql('http://www.google.com/foo/bar?test=123&key=456');
+
+    urlJoin('http:', 'www.google.com///', 'foo/bar', '&test=123', '?key=456')
+      .should.eql('http://www.google.com/foo/bar?test=123&key=456');
   });
 
   it('should merge slashes in paths correctly', () => {
