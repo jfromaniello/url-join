@@ -148,4 +148,13 @@ describe('url join', function () {
   it('should return an empty string if no arguments are supplied', function() {
     urlJoin().should.eql('');
   });
+
+  it('should not mutate the original reference', function() {
+    const input = ['http:', 'www.google.com/', 'foo/bar', '?test=123'];
+    const expected = Array.from(input);
+
+    urlJoin(input);
+
+    input.should.eql(expected);
+  });
 });
