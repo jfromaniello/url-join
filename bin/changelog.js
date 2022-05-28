@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import changelog from 'conventional-changelog';
 
-var semver_regex = /\bv?(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)(?:-[\da-z\-]+(?:\.[\da-z\-]+)*)?(?:\+[\da-z\-]+(?:\.[\da-z\-]+)*)?\b/ig;
+const semver_regex = /\bv?(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)(?:-[\da-z\-]+(?:\.[\da-z\-]+)*)?(?:\+[\da-z\-]+(?:\.[\da-z\-]+)*)?\b/ig;
 
 const commitPartial = ` - {{header}}
 
@@ -17,7 +17,7 @@ changelog({
   releaseCount: 19,
   // preset: 'jshint'
 }, null, null, null, {
-  transform: function (commit) {
+  transform(commit) {
     if (commit.header && semver_regex.exec(commit.header)) {
       return null;
     }
