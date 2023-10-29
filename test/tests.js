@@ -90,6 +90,14 @@ describe('url join', () => {
       .should.eql('http://www.google.com/foo/bar?test=123&key=456');
   });
 
+  it('filters out empty query parameters', () => {
+    urlJoin('http://google.com', '?')
+      .should.eql('http://google.com');
+
+    urlJoin('http://google.com', '&')
+      .should.eql('http://google.com');
+  });
+
   it('should merge slashes in paths correctly', () => {
     urlJoin('http://example.org', 'a//', 'b//', 'A//', 'B//')
       .should.eql('http://example.org/a/b/A/B/');
