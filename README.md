@@ -1,4 +1,4 @@
-Join all path arguments together and normalize the resulting URL pathname. (No more duplicated or missing slashes!)
+Join all arguments together and normalize the resulting URL.
 
 
 ## Install
@@ -18,7 +18,7 @@ const id = '42'
 const postUrl = urlJoin('/posts', id, '/metadata/');
 // => "/posts/42/metadata"
 ```
-## Use the Web Standard APIs for Other Cases
+## You might not need this library
 
 Web Sandard APIs [URL][1] and [URLSearchParams][1] capable of URL operations except manipulating [URL pathnames][2].
 ```
