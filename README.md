@@ -1,6 +1,5 @@
 Join all arguments together and normalize the resulting URL.
 
-
 ## Install
 
 ```bash
@@ -14,13 +13,30 @@ If you want to use it directly in a browser use a CDN like [Skypack](https://www
 ```javascript
 import urlJoin from 'url-join';
 
-const id = '42'
-const postUrl = urlJoin('/posts', id, '/metadata/');
-// => "/posts/42/metadata"
+// Create a Full URL
+const fullUrl = urlJoin('http://www.google.com', 'a', '/b/cd', '?foo=123', '&bar=456', '#heading-1');
+fullUrl.toString(); // 'http://www.google.com/a/b/cd?foo=123&bar=456#heading-1'
 ```
 ## You might not need this library
 
-Web Sandard APIs [URL][1] and [URLSearchParams][1] capable of URL operations except manipulating [URL pathnames][2].
+This library was originally created before the [URL][1] and [URLSearchParams][1] APIs were standardized and widely available in popular runtimes such as browsers and Node.js. Depending on your use-case you might want to consider using these standardized APIs over this library.
+
+```javascript
+const fullUrl = new URL('http://www.google.com');
+
+fullUrl.pathname = '/a/b/cd';
+fullUrl.searchParams.append('foo', '123');
+fullUrl.searchParams.append('bar', '456');
+fullUrl.hash = 'heading-1';
+
+fullUrl.toString(); // 'http://www.google.com/a/b/cd?foo=123&bar=456#heading-1'
+```
+
+### Caveats for Standard APIs
+There are a couple of caveats to take into account when utilizing the standard APIs. Firstly, a [URL][1] must always include a complete and valid base, which means specifying the scheme and domain name (e.g. http://example.com).
+
+Secondly, it is not possible to join together and normalize the path of a URL. You must do this manually by joining your paths and then assigning the pathname property.
+
 ```
 Use this library to manipulate URL pathnames
                                       👇
@@ -28,40 +44,8 @@ Use this library to manipulate URL pathnames
 |-scheme-|    |---domain----| |----pathname----| |------search-------| |--hash--|
 ```
 
-#### [`URL()`][1]
-
-- Join origin to pathname, deduplicating `/` between origin and pathname
-```js
-let url = new URL("/wiki/Early_history_of_the_IRT_subway", "https://wikipedia.org/")
-// => "https://wikipedia.org/wiki/Early_history_of_the_IRT_subway"
-```
-
-- Set the url hash
-```js
-let url = new URL("https://example.com/")
-url.hash = "heading-1"
-// => "https://example.com/#heading-1"
-```
-
-#### [`URLSearchParams()`][1]
-- Set query params on a URL
-```js
-let url = new URL("https://example.com/")
-url.search = new URLSearchParams([ ["foo", 123], ["bar", 456] ])
-// => "https://example.com/?foo=123&bar=456"
-```
-- Add query params to an existing URL
-```js
-let url = new URL("https://example.com/")
-url.searchParams.set('foo', 123) // to overwrite existing
-url.searchParams.append('bar', 456) // to add without overwriting
-// => "https://example.com/?foo=123&bar=456"
-```
-
 ## License
 
 MIT
 
-
 [1]: https://developer.mozilla.org/en-US/docs/Web/API/URL_API
-[2]: https://developer.mozilla.org/en-US/docs/Web/API/URL/pathname
