@@ -34,7 +34,7 @@ fullUrl.toString(); // 'http://www.google.com/a/b/cd?foo=123&bar=456#heading-1'
 ```
 
 ### Caveats of URL API
-There are a couple of caveats to take into account when utilizing the standard APIs. Firstly, a [URL][1] must always include a complete and valid base, which means specifying the scheme and domain name (e.g. http://example.com).
+There are a couple of caveats to take into account when utilizing the standard APIs. Firstly, a `URL` must always include a complete and valid base, which means specifying the scheme and domain name (e.g. http://example.com).
 
 Secondly, it is not possible to join together and normalize the path of a URL. You must do this manually by joining your paths and then assigning the pathname property.
 
@@ -48,5 +48,3 @@ Use this library to manipulate URL pathnames
 ## License
 
 MIT
-
-[1]: https://developer.mozilla.org/en-US/docs/Web/API/URL_API
