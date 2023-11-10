@@ -21,6 +21,7 @@ fullUrl.toString(); // 'http://www.google.com/a/b/cd?foo=123&bar=456#heading-1'
 
 This library was originally created before the [URL API](https://developer.mozilla.org/en-US/docs/Web/API/URL_API) was standardized and widely available in popular runtimes such as browsers and Node.js. Depending on your use-case you might want to consider using the standardized API over this library.
 
+For example, the equivalent code for the above example would look as follows when using the URL API:
 ```javascript
 const fullUrl = new URL('http://www.google.com');
 
