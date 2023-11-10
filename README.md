@@ -13,9 +13,8 @@ If you want to use it directly in a browser use a CDN like [Skypack](https://www
 ```javascript
 import urlJoin from 'url-join';
 
-// Create a Full URL
 const fullUrl = urlJoin('http://www.google.com', 'a', '/b/cd', '?foo=123', '&bar=456', '#heading-1');
-fullUrl.toString(); // 'http://www.google.com/a/b/cd?foo=123&bar=456#heading-1'
+// 'http://www.google.com/a/b/cd?foo=123&bar=456#heading-1'
 ```
 ## You might not need this library
 
