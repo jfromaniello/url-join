@@ -19,7 +19,7 @@ fullUrl.toString(); // 'http://www.google.com/a/b/cd?foo=123&bar=456#heading-1'
 ```
 ## You might not need this library
 
-This library was originally created before the [URL][1] and [URLSearchParams][1] APIs were standardized and widely available in popular runtimes such as browsers and Node.js. Depending on your use-case you might want to consider using these standardized APIs over this library.
+This library was originally created before the [URL API](https://developer.mozilla.org/en-US/docs/Web/API/URL_API) was standardized and widely available in popular runtimes such as browsers and Node.js. Depending on your use-case you might want to consider using the standardized API over this library.
 
 ```javascript
 const fullUrl = new URL('http://www.google.com');
