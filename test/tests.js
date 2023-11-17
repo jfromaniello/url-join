@@ -279,3 +279,17 @@ test('does not replace query params after the hash', () => {
     'http://example.com#a?b?c'
   );
 });
+
+test('joins broken up query params', () => {
+  assert.equal(
+    urlJoin('http://example.com', '/foo/bar?', 'test=123'),
+    'http://example.com/foo/bar?test=123'
+  );
+});
+
+test('joins broken up hash', () => {
+  assert.equal(
+    urlJoin('http://example.com', '/foo/bar#', 'some-hash'),
+    'http://example.com/foo/bar#some-hash'
+  );
+});
