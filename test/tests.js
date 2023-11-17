@@ -272,3 +272,10 @@ test('does not mutate the original input', () => {
 
   assert.deepEqual(input, expected);
 });
+
+test('does not replace query params after the hash', () => {
+  assert.equal(
+    urlJoin('http://example.com', '#a?b?c'),
+    'http://example.com#a?b?c'
+  );
+});
