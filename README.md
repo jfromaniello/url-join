@@ -25,6 +25,7 @@ This library was originally created before the [URL API](https://developer.mozil
 ### In the Browser
 
 For example, the equivalent code for the above example would look as follows when using the URL API:
+
 ```javascript
 const fullUrl = new URL('http://www.google.com');
 
@@ -36,25 +37,30 @@ fullUrl.hash = 'heading-1';
 console.log(fullUrl.toString()); // 'http://www.google.com/a/b/cd?foo=123&bar=456#heading-1'
 ```
 
-### Joining Path Parts
-This library provides the piece missing from `URL`, joining URL path parts together:
+### Joining paths
+
+This library provides the missing piece for the URL API, joining multiple paths together:
 
 ```javascript
 import urlJoin from 'url-join';
 
 const fullUrl = new URL('http://www.google.com');
-fullUrl.pathname = urlJoin('a', 'b', 'cd');
+
+fullUrl.pathname = urlJoin('a', '/b/cd');
 
 console.log(fullUrl.toString()); // 'http://www.google.com/a/b/cd'
 ```
 
 ### In Node.js
-If you are programming for Node.js, its `path/posix` library can join paths in a way that is compatible with URL pathnames:
+
+If you are using Node.js, the `path/posix` module can join paths in a way that is compatible with URL pathnames:
+
 ```javascript
 import { join as joinPath } from 'node:path/posix';
 
 const fullUrl = new URL('http://www.google.com');
-fullUrl.pathname = joinPath('/a/', 'b', 'cd');
+
+fullUrl.pathname = joinPath('a', '/b/cd');
 
 console.log(fullUrl.toString()); // 'http://www.google.com/a/b/cd'
 ```
