@@ -54,6 +54,11 @@ test('removes extra slashes in an encoded URL', () => {
     urlJoin('http://a.com/23d04b3/', '/b/c.html'),
     'http://a.com/23d04b3/b/c.html'
   );
+
+  assert.equal(
+    urlJoin("/foo", "/", "bar", "?test=123"),
+    "/foo/bar?test=123"
+  );
 });
 
 test('joins anchors in URLs', () => {
