@@ -293,3 +293,10 @@ test('joins broken up hash', () => {
     'http://example.com/foo/bar#some-hash'
   );
 });
+
+test('joins leading empty string', () => {
+  assert.equal(
+    urlJoin('', '/test'),
+    '/test'
+  );
+});
