@@ -300,3 +300,24 @@ test('joins leading empty string', () => {
     '/test'
   );
 });
+
+test('joins a leading IPv6 hostname', () => {
+  assert.equal(
+    urlJoin('[2601:195:c381:3560::f42a]/', '/test'),
+    '[2601:195:c381:3560::f42a]/test'
+  );
+});
+
+test('joins a leading IPv6 host with an IPv4 address in the least significant 32 bits', () => {
+  assert.equal(
+    urlJoin('[2601:195:c381:3560::0.0.244.42]', '/test'),
+    '[2601:195:c381:3560::0.0.244.42]/test'
+  );
+});
+
+test('joins a protocol followed by an IPv6 host', () => {
+  assert.equal(
+    urlJoin('https://', '[2601:195:c381:3560::f42a]/', '/test'),
+    'https://[2601:195:c381:3560::f42a]/test'
+  );
+});
