@@ -37,6 +37,13 @@ test('joins a protocol with slashes', () => {
   );
 });
 
+test('Remove periods from paths', () => {
+  assert.equal(
+    urlJoin('http:', 'www.google.com/', 'foo/bar','./deee', '?test=123'),
+    'http://www.google.com/foo/bar/deee?test=123'
+  );
+});
+
 test('removes extra slashes', () => {
   assert.equal(
     urlJoin('http:', 'www.google.com///', 'foo/bar', '?test=123'),
