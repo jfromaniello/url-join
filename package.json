@@ -27,6 +27,6 @@
   "author": "José F. Romaniello <jfromaniello@gmail.com> (http://joseoncode.com)",
   "license": "MIT",
   "devDependencies": {
-    "conventional-changelog": "^7.1.1"
+    "conventional-changelog": "^8.0.0"
   }
 }
