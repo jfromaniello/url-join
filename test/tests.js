@@ -75,6 +75,30 @@ test('joins protocol-relative URLs', () => {
   );
 });
 
+test('preserves additional hashes in URL fragments', () => {
+  assert.equal(
+    urlJoin('https://example.com', 'docs', '#section#details'),
+    'https://example.com/docs#section#details'
+  );
+
+  assert.equal(
+    urlJoin(['https://example.com', 'docs', '##details']),
+    'https://example.com/docs##details'
+  );
+
+  assert.equal(
+    urlJoin('https://example.com/docs#section#details'),
+    'https://example.com/docs#section#details'
+  );
+});
+
+test('preserves query characters after additional fragment hashes', () => {
+  assert.equal(
+    urlJoin('https://example.com', '?a=1', '?b=2', '#section#details?x=1&y=2'),
+    'https://example.com?a=1&b=2#section#details?x=1&y=2'
+  );
+});
+
 test('joins file protocol URLs', () => {
   assert.equal(
     urlJoin('file:/', 'android_asset', 'foo/bar'),
