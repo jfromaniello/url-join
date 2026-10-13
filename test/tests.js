@@ -345,3 +345,11 @@ test('joins a protocol followed by an IPv6 host', () => {
     'https://[2601:195:c381:3560::f42a]/test'
   );
 });
+
+test('does not produce undefined with a leading hash (#134)', () => {
+  assert.equal(urlJoin('#/', '/tenant'), '#tenant');
+  assert.equal(urlJoin('/#', '/tenant'), '#tenant');
+  assert.equal(urlJoin('/#/', '/tenant'), '#tenant');
+  assert.equal(urlJoin('/', '#', '/tenant'), '#tenant');
+  assert.equal(urlJoin('/something', '#', '/tenant'), '/something#tenant');
+});
