@@ -345,3 +345,24 @@ test('joins a protocol followed by an IPv6 host', () => {
     'https://[2601:195:c381:3560::f42a]/test'
   );
 });
+
+test('joins URLs that start with a hash', () => {
+  assert.equal(urlJoin('#', 'tenant'), '#tenant');
+  assert.equal(urlJoin('#a'), '#a');
+  assert.equal(urlJoin('/', '#', 'tenant'), '#tenant');
+});
+
+test('keeps a leading query string', () => {
+  assert.equal(urlJoin('?a=1'), '?a=1');
+  assert.equal(urlJoin('?a=1', '?b=2'), '?a=1&b=2');
+  assert.equal(urlJoin('/?a', '#b'), '?a#b');
+});
+
+test('keeps an explicit slash after a hash', () => {
+  assert.equal(urlJoin('#/', '/tenant'), '#/tenant');
+  assert.equal(urlJoin('/#', '/tenant'), '#/tenant');
+  assert.equal(urlJoin('/#/', '/tenant'), '#/tenant');
+  assert.equal(urlJoin('/', '#', '/tenant'), '#/tenant');
+  assert.equal(urlJoin('/something', '#', '/tenant'), '/something#/tenant');
+  assert.equal(urlJoin('http://example.com', '#/', 'foo', 'bar'), 'http://example.com#/foo/bar');
+});
