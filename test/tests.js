@@ -2,6 +2,13 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import urlJoin from '../lib/url-join.js';
 
+test('returns an empty string if all segments are empty', () => {
+  assert.equal(urlJoin(''), '');
+  assert.equal(urlJoin('', ''), '');
+  assert.equal(urlJoin(['', '']), '');
+  assert.throws(() => urlJoin('', null), TypeError);
+});
+
 test('joins a simple URL', () => {
   assert.equal(
     urlJoin('http://www.google.com/', 'foo/bar', '?test=123'),
