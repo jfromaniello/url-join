@@ -18,6 +18,11 @@ const fullUrl = urlJoin('http://www.google.com', 'a', '/b/cd', '?foo=123', '&bar
 console.log(fullUrl.toString()); // 'http://www.google.com/a/b/cd?foo=123&bar=456#heading-1'
 ```
 
+An initial `host:port` with a numeric port, such as `localhost:3000`, is kept
+without adding protocol slashes. This form is ambiguous with a protocol followed
+by a numeric value. Use `my_app://123` or separate arguments (`'my_app:', '123'`)
+to explicitly request protocol normalization in that case.
+
 ## You might not need this library
 
 This library was originally created before the [URL API](https://developer.mozilla.org/en-US/docs/Web/API/URL_API) was standardized and widely available in popular runtimes such as browsers and Node.js. Depending on your use-case you might want to consider using the standardized API over this library.
