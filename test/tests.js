@@ -349,8 +349,8 @@ test('joins a leading IPv4 host with a port using array syntax', () => {
   );
 });
 
-test('normalizes valid custom protocols', () => {
-  for (const protocol of ['HTTP', 'git+ssh', 'web.v2', 'custom-scheme']) {
+test('normalizes custom protocols including legacy names', () => {
+  for (const protocol of ['HTTP', 'git+ssh', 'web.v2', 'custom-scheme', 'my_app']) {
     assert.equal(
       urlJoin(protocol + ':example.com', 'path'),
       protocol + '://example.com/path'
@@ -361,6 +361,42 @@ test('normalizes valid custom protocols', () => {
       protocol + '://example.com/path'
     );
   }
+});
+
+test('joins hostname ports without adding protocol slashes', () => {
+  assert.equal(urlJoin('localhost:3000', 'api'), 'localhost:3000/api');
+  assert.equal(urlJoin('example.com:8080/', '/api'), 'example.com:8080/api');
+  assert.equal(urlJoin(['localhost:3000', 'api']), 'localhost:3000/api');
+});
+
+test('preserves standalone hosts with ports', () => {
+  for (const host of ['127.0.0.1:5500', 'localhost:3000', 'example.com:8080']) {
+    assert.equal(urlJoin(host), host);
+    assert.equal(urlJoin([host]), host);
+  }
+});
+
+test('joins queries and fragments after hostname ports', () => {
+  assert.equal(urlJoin('localhost:3000', '?a=1'), 'localhost:3000?a=1');
+  assert.equal(urlJoin('localhost:3000', '#x'), 'localhost:3000#x');
+  assert.equal(urlJoin('localhost:3000?a=1', '?b=2'), 'localhost:3000?a=1&b=2');
+  assert.equal(urlJoin('localhost:3000#x', 'path'), 'localhost:3000#x/path');
+});
+
+test('preserves explicit protocols and nonnumeric protocol targets', () => {
+  assert.equal(urlJoin('http:', 'localhost:3000', 'api'), 'http://localhost:3000/api');
+  assert.equal(urlJoin('http://localhost:3000', 'api'), 'http://localhost:3000/api');
+  assert.equal(urlJoin('http:', '3000', 'api'), 'http://3000/api');
+  assert.equal(urlJoin('my_app:', '123', 'api'), 'my_app://123/api');
+  assert.equal(urlJoin('my_app://123', 'api'), 'my_app://123/api');
+  assert.equal(urlJoin('my_app:123abc', 'api'), 'my_app://123abc/api');
+  assert.equal(urlJoin('www.x.com', 'api'), 'www.x.com/api');
+});
+
+test('does not combine digit-leading prefixes as plain protocols', () => {
+  assert.equal(urlJoin('127.0.0.1:', 'foo'), '127.0.0.1:/foo');
+  assert.equal(urlJoin(['127.0.0.1:', 'foo']), '127.0.0.1:/foo');
+  assert.equal(urlJoin('1custom:', 'foo'), '1custom:/foo');
 });
 
 test('joins a leading IPv6 hostname', () => {
