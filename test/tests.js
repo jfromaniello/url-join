@@ -16,6 +16,76 @@ test('joins a simple URL with new syntax', () => {
   );
 });
 
+test('preserves a trailing path slash before a query', () => {
+  assert.equal(
+    urlJoin('www.example.com', '/test/?hello=true'),
+    'www.example.com/test/?hello=true'
+  );
+});
+
+test('preserves a trailing path slash before a query with array input', () => {
+  assert.equal(
+    urlJoin(['www.example.com', '/test/?hello=true']),
+    'www.example.com/test/?hello=true'
+  );
+});
+
+test('preserves a trailing path slash across query boundaries', () => {
+  for (const [parts, expected] of [
+    [['https://example.com/test/?hello=true'], 'https://example.com/test/?hello=true'],
+    [['/test/?hello=true'], '/test/?hello=true'],
+    [['/test/', '?hello=true'], '/test/?hello=true'],
+    [['/test', '/?hello=true'], '/test/?hello=true'],
+    [['/test', '/', '?hello=true'], '/test/?hello=true'],
+    [['/test///', '', '?hello=true', '&other=1'], '/test/?hello=true&other=1'],
+    [['/test//?hello=true'], '/test//?hello=true'],
+    [['https://example.com/', '?hello=true'], 'https://example.com/?hello=true'],
+    [['file:///tmp/test/?hello=true'], 'file:///tmp/test/?hello=true'],
+  ]) {
+    assert.equal(urlJoin(...parts), expected);
+    assert.equal(urlJoin(parts), expected);
+  }
+});
+
+test('preserves a trailing path slash across fragment boundaries', () => {
+  for (const [parts, expected] of [
+    [['/test/#section'], '/test/#section'],
+    [['/test/', '#section'], '/test/#section'],
+    [['/test/', '#', '/tenant'], '/test/#/tenant'],
+    [['/test/?hello=true', '#/tenant'], '/test/?hello=true#/tenant'],
+    [['/test/', '#!', 'route', '?hello=true'], '/test/#!/route?hello=true'],
+  ]) {
+    assert.equal(urlJoin(...parts), expected);
+    assert.equal(urlJoin(parts), expected);
+  }
+});
+
+test('does not infer a trailing path slash from query or fragment content', () => {
+  for (const [parts, expected] of [
+    [['/test', '?hello=true'], '/test?hello=true'],
+    [['/test', '?', 'hello=true', '&other=1', '#section'], '/test?hello=true&other=1#section'],
+    [['/test?hello=true', '/#section'], '/test?hello=true#section'],
+    [['/test?next=/'], '/test?next=/'],
+    [['/test#section/'], '/test#section/'],
+    [['/test%2F', '?hello=true'], '/test%2F?hello=true'],
+  ]) {
+    assert.equal(urlJoin(...parts), expected);
+    assert.equal(urlJoin(parts), expected);
+  }
+});
+
+test('preserves a trailing path slash with empty suffixes', () => {
+  for (const [parts, expected] of [
+    [['/test/', '?'], '/test/'],
+    [['/test/?'], '/test/'],
+    [['/test/#'], '/test/'],
+    [['/test/', '?', '#section'], '/test/#section'],
+  ]) {
+    assert.equal(urlJoin(...parts), expected);
+    assert.equal(urlJoin(parts), expected);
+  }
+});
+
 test('joins a hashbang', () => {
   assert.equal(
     urlJoin(['http://www.google.com', '#!', 'foo/bar', '?test=123']),
