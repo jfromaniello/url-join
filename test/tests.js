@@ -325,6 +325,44 @@ test('joins leading empty string', () => {
   );
 });
 
+test('joins a leading IPv4 host with a port', () => {
+  assert.equal(
+    urlJoin('127.0.0.1:5500', 'data', 'myfile1.csv'),
+    '127.0.0.1:5500/data/myfile1.csv'
+  );
+
+  assert.equal(
+    urlJoin('192.0.2.1:8080/', '/data/', '/myfile1.csv'),
+    '192.0.2.1:8080/data/myfile1.csv'
+  );
+});
+
+test('joins a leading IPv4 host with a port using array syntax', () => {
+  assert.equal(
+    urlJoin(['127.0.0.1:5500', 'data', 'myfile1.csv']),
+    '127.0.0.1:5500/data/myfile1.csv'
+  );
+
+  assert.equal(
+    urlJoin(['127.0.0.1:5500/data/myfile1.csv']),
+    '127.0.0.1:5500/data/myfile1.csv'
+  );
+});
+
+test('normalizes valid custom protocols', () => {
+  for (const protocol of ['HTTP', 'git+ssh', 'web.v2', 'custom-scheme']) {
+    assert.equal(
+      urlJoin(protocol + ':example.com', 'path'),
+      protocol + '://example.com/path'
+    );
+
+    assert.equal(
+      urlJoin(protocol + ':', 'example.com', 'path'),
+      protocol + '://example.com/path'
+    );
+  }
+});
+
 test('joins a leading IPv6 hostname', () => {
   assert.equal(
     urlJoin('[2601:195:c381:3560::f42a]/', '/test'),
