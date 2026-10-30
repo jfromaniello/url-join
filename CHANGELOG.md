@@ -1,3 +1,72 @@
+## 6.0.0 - 2026-10-24
+
+ - Preserve explicit path slashes before queries and fragments (#137) ([f0ecd0d088218b3161767cfb0f88815fe2f4a824](https://github.com/jfromaniello/url-join/commit/f0ecd0d088218b3161767cfb0f88815fe2f4a824)), closes [#137](https://github.com/jfromaniello/url-join/issues/137)
+
+
+
+## 5.2.0 - 2026-10-24
+
+ - fix: preserve hosts with numeric ports (#138) ([b7a340340211c707e5991121974c7506992a1220](https://github.com/jfromaniello/url-join/commit/b7a340340211c707e5991121974c7506992a1220)), closes [#138](https://github.com/jfromaniello/url-join/issues/138)
+
+
+
+## 5.1.2 - 2026-10-24
+
+ - fix: return empty URL after filtering empty segments (#136) ([1eed3e73c8961092176a05682cc3a6525e846bfe](https://github.com/jfromaniello/url-join/commit/1eed3e73c8961092176a05682cc3a6525e846bfe)), closes [#136](https://github.com/jfromaniello/url-join/issues/136)
+
+
+
+## 5.1.1 - 2026-10-13
+
+ - fix: handle URLs that start with a hash or query string ([12a7144f63746ae5d177c4e1c134907decaa95ee](https://github.com/jfromaniello/url-join/commit/12a7144f63746ae5d177c4e1c134907decaa95ee))
+
+
+
+## 5.1.0 - 2026-10-13
+
+ - Add Dependabot config for Github Actions (#80) ([ccc9de84ae0181184bdab78f8ef4d6b951c29c73](https://github.com/jfromaniello/url-join/commit/ccc9de84ae0181184bdab78f8ef4d6b951c29c73)), closes [#80](https://github.com/jfromaniello/url-join/issues/80)
+ - Add Node.js 18 to testing matrix (#84) ([89c1d02961c64c3e6887bdfcd1e8c1a97923a992](https://github.com/jfromaniello/url-join/commit/89c1d02961c64c3e6887bdfcd1e8c1a97923a992)), closes [#84](https://github.com/jfromaniello/url-join/issues/84)
+ - Bump @conventional-changelog/git-client and conventional-changelog (#119) ([f68525f94b92a29a2f9085aed677f36b9eda4094](https://github.com/jfromaniello/url-join/commit/f68525f94b92a29a2f9085aed677f36b9eda4094)), closes [#119](https://github.com/jfromaniello/url-join/issues/119)
+ - Bump actions/cache from 2 to 3 ([fa47025a1a67cbd4c1f837df45af0685a8077b23](https://github.com/jfromaniello/url-join/commit/fa47025a1a67cbd4c1f837df45af0685a8077b23))
+ - Bump actions/checkout from 2 to 3 ([dfa2c773b8b9e0ced71218aae0b6e4e553ddede0](https://github.com/jfromaniello/url-join/commit/dfa2c773b8b9e0ced71218aae0b6e4e553ddede0))
+ - Bump actions/checkout from 3 to 4 (#96) ([aca5adb395417888c3cd1d030788d41302737a68](https://github.com/jfromaniello/url-join/commit/aca5adb395417888c3cd1d030788d41302737a68)), closes [#96](https://github.com/jfromaniello/url-join/issues/96)
+ - Bump actions/checkout from 4 to 5 (#116) ([92a86879c0cacaef0ebbc32806046ea9b5177225](https://github.com/jfromaniello/url-join/commit/92a86879c0cacaef0ebbc32806046ea9b5177225)), closes [#116](https://github.com/jfromaniello/url-join/issues/116)
+ - Bump actions/checkout from 5 to 6 (#121) ([22a087f35212f18d6a18a866b5711de8fefe8d8d](https://github.com/jfromaniello/url-join/commit/22a087f35212f18d6a18a866b5711de8fefe8d8d)), closes [#121](https://github.com/jfromaniello/url-join/issues/121)
+ - Bump actions/checkout from 6 to 7 (#124) ([7d11691be4ed4bf9ad95fd4fa916a235760fd147](https://github.com/jfromaniello/url-join/commit/7d11691be4ed4bf9ad95fd4fa916a235760fd147)), closes [#124](https://github.com/jfromaniello/url-join/issues/124)
+ - Bump actions/setup-node from 2 to 3 ([d493a21ad44def86aae42fa1b26ee1624696cd0a](https://github.com/jfromaniello/url-join/commit/d493a21ad44def86aae42fa1b26ee1624696cd0a))
+ - Bump actions/setup-node from 3 to 4 (#100) ([318f0e8254e95b614ebb6ac9ee608c3d1e2db19c](https://github.com/jfromaniello/url-join/commit/318f0e8254e95b614ebb6ac9ee608c3d1e2db19c)), closes [#100](https://github.com/jfromaniello/url-join/issues/100)
+ - Bump actions/setup-node from 4 to 6 (#120) ([4236fb7e4177936fd2c63f9057dd56232b4a86d5](https://github.com/jfromaniello/url-join/commit/4236fb7e4177936fd2c63f9057dd56232b4a86d5)), closes [#120](https://github.com/jfromaniello/url-join/issues/120)
+ - Bump actions/setup-node from 6 to 7 (#128) ([32815bf5d91a5e0add5c7c9ee3b74d2ae61885de](https://github.com/jfromaniello/url-join/commit/32815bf5d91a5e0add5c7c9ee3b74d2ae61885de)), closes [#128](https://github.com/jfromaniello/url-join/issues/128)
+ - Bump conventional-changelog from 3.1.25 to 4.0.0 (#94) ([af76b7822d04eed72181e84a25975689d2862b6d](https://github.com/jfromaniello/url-join/commit/af76b7822d04eed72181e84a25975689d2862b6d)), closes [#94](https://github.com/jfromaniello/url-join/issues/94)
+ - Bump conventional-changelog from 4.0.0 to 5.0.0 (#95) ([839b5c97b7d2c89375fdda77e5f94baa5ba74220](https://github.com/jfromaniello/url-join/commit/839b5c97b7d2c89375fdda77e5f94baa5ba74220)), closes [#95](https://github.com/jfromaniello/url-join/issues/95)
+ - Bump conventional-changelog from 5.0.0 to 5.1.0 (#97) ([2bb19cd8718495f085e0edf797a9464bdfdb3ae4](https://github.com/jfromaniello/url-join/commit/2bb19cd8718495f085e0edf797a9464bdfdb3ae4)), closes [#97](https://github.com/jfromaniello/url-join/issues/97)
+ - Bump conventional-changelog from 5.1.0 to 6.0.0 (#110) ([76df72305a4e1b2d3399ee97ed0964fe35e8be75](https://github.com/jfromaniello/url-join/commit/76df72305a4e1b2d3399ee97ed0964fe35e8be75)), closes [#110](https://github.com/jfromaniello/url-join/issues/110)
+ - Bump conventional-changelog from 7.1.1 to 7.2.0 (#122) ([e5f73d83e6e77b2dd8cd42c321d07e09159f10f2](https://github.com/jfromaniello/url-join/commit/e5f73d83e6e77b2dd8cd42c321d07e09159f10f2)), closes [#122](https://github.com/jfromaniello/url-join/issues/122)
+ - Bump conventional-changelog from 7.2.0 to 8.0.0 (#125) ([7afda99eb1f1be931cca1494e10cd50c4feb5e93](https://github.com/jfromaniello/url-join/commit/7afda99eb1f1be931cca1494e10cd50c4feb5e93)), closes [#125](https://github.com/jfromaniello/url-join/issues/125)
+ - Bump conventional-changelog from 8.0.0 to 8.0.1 (#126) ([59f22aff12757c706712b55181eed56a01bb4f8c](https://github.com/jfromaniello/url-join/commit/59f22aff12757c706712b55181eed56a01bb4f8c)), closes [#126](https://github.com/jfromaniello/url-join/issues/126)
+ - Bump conventional-changelog from 8.0.1 to 8.1.0 (#127) ([4c6711ef5b2f634202d8ba308932a14ec23ab998](https://github.com/jfromaniello/url-join/commit/4c6711ef5b2f634202d8ba308932a14ec23ab998)), closes [#127](https://github.com/jfromaniello/url-join/issues/127)
+ - Bump conventional-changelog from 8.1.0 to 8.1.3 (#130) ([815bd1a786fb3e589ee8c4d067a1f05f0d3634a2](https://github.com/jfromaniello/url-join/commit/815bd1a786fb3e589ee8c4d067a1f05f0d3634a2)), closes [#130](https://github.com/jfromaniello/url-join/issues/130)
+ - Bump mocha from 10.0.0 to 10.1.0 (#91) ([2805c71ddbaea2d50359e0f5affb5264ca377def](https://github.com/jfromaniello/url-join/commit/2805c71ddbaea2d50359e0f5affb5264ca377def)), closes [#91](https://github.com/jfromaniello/url-join/issues/91)
+ - Bump mocha from 10.1.0 to 10.2.0 (#93) ([a9ce522aa5ea42ed6c304fc0a1d9ac9d0f2eff68](https://github.com/jfromaniello/url-join/commit/a9ce522aa5ea42ed6c304fc0a1d9ac9d0f2eff68)), closes [#93](https://github.com/jfromaniello/url-join/issues/93)
+ - Bump mocha from 9.2.2 to 10.0.0 ([47d5d246063b57b2bf2579b99425d31703408778](https://github.com/jfromaniello/url-join/commit/47d5d246063b57b2bf2579b99425d31703408778))
+ - Clean up CI workflow (#101) ([5423cf87c1db932de4c4c751127ea2d7ab0c6de1](https://github.com/jfromaniello/url-join/commit/5423cf87c1db932de4c4c751127ea2d7ab0c6de1)), closes [#101](https://github.com/jfromaniello/url-join/issues/101)
+ - Do not add slashes between broken up query params or hash (#106) ([05a01f47a65d9682ef19b2bcac074a39ddf95f62](https://github.com/jfromaniello/url-join/commit/05a01f47a65d9682ef19b2bcac074a39ddf95f62)), closes [#106](https://github.com/jfromaniello/url-join/issues/106)
+ - Do not encode paramaters after the hash (#105) ([92e9976de278ce283d852c90d8ec80f4752916e3](https://github.com/jfromaniello/url-join/commit/92e9976de278ce283d852c90d8ec80f4752916e3)), closes [#105](https://github.com/jfromaniello/url-join/issues/105)
+ - Do not fix the protocol string if the first part is an IPv6 host (#109) ([5bd382c9105ce874c3b566abb39cf8711d7df133](https://github.com/jfromaniello/url-join/commit/5bd382c9105ce874c3b566abb39cf8711d7df133)), closes [#109](https://github.com/jfromaniello/url-join/issues/109)
+ - Ensure single slashes do not duplicate (#104) ([32217850d89312edce7a13ff2c50764b5f98eb38](https://github.com/jfromaniello/url-join/commit/32217850d89312edce7a13ff2c50764b5f98eb38)), closes [#104](https://github.com/jfromaniello/url-join/issues/104)
+ - Filter out empty query parameters (#98) ([5318a437f70b7bd03890f8e66438bce6330d9816](https://github.com/jfromaniello/url-join/commit/5318a437f70b7bd03890f8e66438bce6330d9816)), closes [#98](https://github.com/jfromaniello/url-join/issues/98)
+ - Filter out empty string values before joining (#107) ([2fceca83697a444471466b4a870498c713f18a78](https://github.com/jfromaniello/url-join/commit/2fceca83697a444471466b4a870498c713f18a78)), closes [#107](https://github.com/jfromaniello/url-join/issues/107)
+ - Handle query params with all delimiters (#86) ([6712f54b57695b9b5e156c954732f11312549ad3](https://github.com/jfromaniello/url-join/commit/6712f54b57695b9b5e156c954732f11312549ad3)), closes [#86](https://github.com/jfromaniello/url-join/issues/86)
+ - Remove Node.js 12 from testing matrix (#85) ([a1d70ce71a4c5d95d0f6a6cc909352a53ee9d301](https://github.com/jfromaniello/url-join/commit/a1d70ce71a4c5d95d0f6a6cc909352a53ee9d301)), closes [#85](https://github.com/jfromaniello/url-join/issues/85)
+ - Rewrite README.md to feature web standard APIs (#99) ([6506a51e25acda57b497228a162670cf69a86c40](https://github.com/jfromaniello/url-join/commit/6506a51e25acda57b497228a162670cf69a86c40)), closes [#99](https://github.com/jfromaniello/url-join/issues/99)
+ - Update changelog ([88bad0fa91216e9b199cb3962009d67ae681d6fb](https://github.com/jfromaniello/url-join/commit/88bad0fa91216e9b199cb3962009d67ae681d6fb))
+ - Use built-in Node.js test runner (#102) ([81b0d82e126df071b56c22d35276ac1a3d39605d](https://github.com/jfromaniello/url-join/commit/81b0d82e126df071b56c22d35276ac1a3d39605d)), closes [#102](https://github.com/jfromaniello/url-join/issues/102)
+ - Use modern JavaScript for 'urlJoin' function (#87) ([aef06c1ab25ac89b7a0728f69909a762903155b4](https://github.com/jfromaniello/url-join/commit/aef06c1ab25ac89b7a0728f69909a762903155b4)), closes [#87](https://github.com/jfromaniello/url-join/issues/87)
+ - Use more modern JavaScript syntax (#88) ([e8316b706d6eb10c81e661e8595e5386a5147de3](https://github.com/jfromaniello/url-join/commit/e8316b706d6eb10c81e661e8595e5386a5147de3)), closes [#88](https://github.com/jfromaniello/url-join/issues/88)
+ - fix: preserve additional hashes in URL fragments (#133) ([cceb648e479c25b8b16dc71aebec852d4d87f679](https://github.com/jfromaniello/url-join/commit/cceb648e479c25b8b16dc71aebec852d4d87f679)), closes [#133](https://github.com/jfromaniello/url-join/issues/133)
+
+
+
 ## 5.0.0 - 2022-03-23
 
  - Add Dependabot config to keep dependencies up-to-date (#67) ([e29fd4c9f6a3a1c29f50262c9323f1a4d8173de4](https://github.com/jfromaniello/url-join/commit/e29fd4c9f6a3a1c29f50262c9323f1a4d8173de4)), closes [#67](https://github.com/jfromaniello/url-join/issues/67)
