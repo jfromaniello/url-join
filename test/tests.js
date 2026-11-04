@@ -270,6 +270,16 @@ test('joins a simple path without a URL', () => {
   );
 });
 
+test('collapses leading slash-only parts into a single leading slash (#140)', () => {
+  assert.equal(urlJoin('/', '/docs'), '/docs');
+  assert.equal(urlJoin('/', '/', '/docs'), '/docs');
+  assert.equal(urlJoin('/', '', '/docs'), '/docs');
+  assert.equal(urlJoin('/', '', '/', '/docs'), '/docs');
+  assert.equal(urlJoin('//', 'docs'), '/docs');
+  assert.equal(urlJoin('/', '/'), '/');
+  assert.equal(urlJoin('/', '/docs/', '/guide'), '/docs/guide');
+});
+
 test('throws for segments that are not a string', () => {
   assert.throws(
     () => urlJoin(true),
