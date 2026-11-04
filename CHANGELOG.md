@@ -1,3 +1,9 @@
+## 6.0.1 - 2026-11-04
+
+ - fix: collapse leading slash-only parts into a single leading slash (#140) (#141) ([b08b70c0382032f077e27f6cc2f668ae1cd8e93f](https://github.com/jfromaniello/url-join/commit/b08b70c0382032f077e27f6cc2f668ae1cd8e93f)), closes [#140](https://github.com/jfromaniello/url-join/issues/140) [#141](https://github.com/jfromaniello/url-join/issues/141)
+
+
+
 ## 6.0.0 - 2026-10-24
 
  - Preserve explicit path slashes before queries and fragments (#137) ([f0ecd0d088218b3161767cfb0f88815fe2f4a824](https://github.com/jfromaniello/url-join/commit/f0ecd0d088218b3161767cfb0f88815fe2f4a824)), closes [#137](https://github.com/jfromaniello/url-join/issues/137)
