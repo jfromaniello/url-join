@@ -114,6 +114,36 @@ test('joins a protocol with slashes', () => {
   );
 });
 
+test('preserves non-hierarchical URI prefixes', () => {
+  for (const uri of ['mailto:a@b.c', 'tel:+49123', 'urn:isbn:1']) {
+    assert.equal(urlJoin(uri), uri);
+    assert.equal(urlJoin([uri]), uri);
+    assert.equal(urlJoin('', uri), uri);
+    assert.equal(urlJoin(uri, 'x'), uri + '/x');
+    assert.equal(urlJoin([uri, 'x']), uri + '/x');
+  }
+});
+
+test('joins non-hierarchical schemes supplied separately', () => {
+  for (const [scheme, value] of [['mailto:', 'a@b.c'], ['tel:', '+49123'], ['urn:', 'isbn:1']]) {
+    assert.equal(urlJoin(scheme), scheme);
+    assert.equal(urlJoin(scheme, value), scheme + value);
+    assert.equal(urlJoin([scheme, value, 'x']), scheme + value + '/x');
+  }
+});
+
+test('recognizes non-hierarchical schemes case-insensitively', () => {
+  for (const [scheme, value] of [['MAILTO:', 'a@b.c'], ['Tel:', '+49123'], ['UrN:', 'isbn:1']]) {
+    assert.equal(urlJoin(scheme + value), scheme + value);
+    assert.equal(urlJoin(scheme, value), scheme + value);
+  }
+});
+
+test('joins query and fragment parts after non-hierarchical URIs', () => {
+  assert.equal(urlJoin('mailto:a@b.c', '?subject=Hello'), 'mailto:a@b.c?subject=Hello');
+  assert.equal(urlJoin('urn:isbn:1', '#chapter'), 'urn:isbn:1#chapter');
+});
+
 test('removes extra slashes', () => {
   assert.equal(
     urlJoin('http:', 'www.google.com///', 'foo/bar', '?test=123'),
