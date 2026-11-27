@@ -23,6 +23,10 @@ without adding protocol slashes. This form is ambiguous with a protocol followed
 by a numeric value. Use `my_app://123` or separate arguments (`'my_app:', '123'`)
 to explicitly request protocol normalization in that case.
 
+The `mailto:`, `tel:`, and `urn:` prefixes are preserved without adding protocol
+slashes. For example, `urlJoin('mailto:', 'a@example.com')` returns
+`'mailto:a@example.com'`.
+
 ## You might not need this library
 
 This library was originally created before the [URL API](https://developer.mozilla.org/en-US/docs/Web/API/URL_API) was standardized and widely available in popular runtimes such as browsers and Node.js. Depending on your use-case you might want to consider using the standardized API over this library.
